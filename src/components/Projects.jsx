@@ -88,8 +88,8 @@ function Projects() {
                 'Project showcase',
                 'SEO optimized',
             ],
-            github: '#',
-            demo: '#',
+            github: 'https://github.com/elmehdi05tabi/portfolio-.git',
+            demo: 'https://elmehdi-seven.vercel.app/',
         },
     ]
 
