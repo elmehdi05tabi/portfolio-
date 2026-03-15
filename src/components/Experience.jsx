@@ -29,48 +29,18 @@ function Experience() {
     // TODO: Replace with your actual experience
     const experiences = [
         {
-            type: 'Academic Project',
-            title: 'Full Stack E-Commerce Development',
-            organization: 'University Project',
-            period: '2023 - 2024',
+            type: 'Internship',
+            title: 'Full Stack Developer & Teams Lead',
+            organization: 'CEFP ',
+            period: '3 Months',
             description:
-                'Developed a complete e-commerce platform as part of final year project, implementing both frontend and backend functionalities.',
-            technologies: ['React', 'Laravel', 'MySQL', 'REST API'],
+                'Responsible for a development team creating an ERP system for the multi-site management of a vocational training center. Full-stack development in PHP and design of a scalable database including registration management, course scheduling, and financial tracking.',
+            technologies: ['PHP', 'Tailwind CSS', 'MySQL', 'Git', 'GitHub'],
             achievements: [
-                'Implemented user authentication and authorization',
-                'Created admin dashboard for product management',
-                'Integrated payment gateway',
-                'Achieved 95% project grade',
-            ],
-        },
-        {
-            type: 'Personal Project',
-            title: 'Social Media Platform',
-            organization: 'Self-Learning',
-            period: '2023',
-            description:
-                'Built a social networking application to practice full stack development skills and learn new technologies.',
-            technologies: ['React', 'PHP', 'MySQL', 'JavaScript'],
-            achievements: [
-                'Implemented real-time features',
-                'Created responsive UI/UX design',
-                'Deployed on cloud hosting',
-                'Gained 100+ test users',
-            ],
-        },
-        {
-            type: 'Freelance',
-            title: 'Portfolio & Business Websites',
-            organization: 'Various Clients',
-            period: '2022 - Present',
-            description:
-                'Developed custom websites for small businesses and individual clients, focusing on responsive design and user experience.',
-            technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'WordPress'],
-            achievements: [
-                'Completed 5+ client projects',
-                'Maintained 100% client satisfaction',
-                'Improved SEO rankings for clients',
-                'Ongoing maintenance and support',
+                'Implemented user authentication and authorizationLed a development team to design and implement a centralized ERP system for the CEFP vocational training center.',
+                'Architected a scalable relational database supporting multi-center management and high data integrity.',
+                'Coordinated project tasks using Agile/Scrum practices and Jira, ensuring timely delivery of project milestones.',
+                'Built real-time financial analytics dashboards to monitor budgets, expenses, and operational performance.',
             ],
         },
     ]

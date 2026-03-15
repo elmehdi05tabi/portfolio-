@@ -35,22 +35,17 @@ function Skills() {
         {
             title: 'Backend',
             icon: '⚙️',
-            skills: ['PHP', 'Laravel', 'Python'],
+            skills: ['C', 'Python', 'PHP', 'Laravel', 'Node.js', 'Express.js'],
         },
         {
             title: 'Database',
             icon: '🗄️',
-            skills: ['MySQL'],
+            skills: ['MySQL','MongoDB'],
         },
         {
-            title: 'Tools',
+            title: 'DevOps & Tools',
             icon: '🛠️',
-            skills: ['Git', 'GitHub', 'Jira'],
-        },
-        {
-            title: 'Concepts',
-            icon: '💡',
-            skills: ['MVC', 'CRUD', 'Authentication', 'REST API'],
+            skills: ['Git', 'GitHub', 'GitLab','Docker', 'Jira'],
         },
     ]
 

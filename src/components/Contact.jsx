@@ -161,7 +161,7 @@ function Contact() {
                         </div>
 
                         <div className="cv-download">
-                            <a href="/El_Mehdi_tabi.pdf" download className="btn btn-gold">
+                            <a href="/El_Mehdi_Tabi.pdf" download className="btn btn-gold">
                                 <svg
                                     width="20"
                                     height="20"

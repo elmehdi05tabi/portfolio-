@@ -28,7 +28,7 @@ function Navbar({ activeSection }) {
         { id: 'skills', label: 'Skills' },
         { id: 'projects', label: 'Projects' },
         { id: 'education', label: 'Education' },
-        // { id: 'experience', label: 'Experience' },
+        { id: 'experience', label: 'Experience' },
         { id: 'contact', label: 'Contact' },
     ]
 

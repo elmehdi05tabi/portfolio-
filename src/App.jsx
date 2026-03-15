@@ -43,7 +43,7 @@ function App() {
                 <Skills />
                 <Projects />
                 <Education />
-                {/* <Experience /> */}
+                <Experience /> 
                 <Contact />
             </main>
             <Footer />
