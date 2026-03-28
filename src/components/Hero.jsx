@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Hero.css'
-import img from './me.jpeg'
+import img from './me.png'
 function Hero() {
     const [isVisible, setIsVisible] = useState(false)
 
