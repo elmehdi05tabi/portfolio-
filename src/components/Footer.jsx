@@ -102,7 +102,7 @@ function Footer() {
                         &copy; {currentYear} MT. All rights reserved.
                     </p>
                     <p className="footer-credit">
-                        Built with <span className="heart">❤️</span> using React & Vite
+                        Built with <span className="heart">El Mehdi Tabi</span> using React & Vite
                     </p>
                 </div>
             </div>
