@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import './Navbar.css'
 
-function Navbar({ activeSection }) {
+function Navbar({ activeSection, theme, onThemeToggle }) {
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -24,20 +26,19 @@ function Navbar({ activeSection }) {
 
     const navItems = [
         { id: 'home', label: 'Home' },
-        { id: 'about', label: 'About' },
-        { id: 'skills', label: 'Skills' },
         { id: 'projects', label: 'Projects' },
-        { id: 'education', label: 'Education' },
+        { id: 'skills', label: 'Skills' },
         { id: 'experience', label: 'Experience' },
-        { id: 'contact', label: 'Contact' },
+        { id: 'education', label: 'Education' },
+        { id: 'certificates', label: 'Certificates' },
+        { id: 'about', label: 'About' },
     ]
 
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-container">
                 <div className="navbar-logo" onClick={() => scrollToSection('home')}>
-                    <span className="logo-text">EL Mehdi</span>
-                    <span className="logo-subtitle">Full Stack Dev</span>
+                    <img className="logo-mark" src="/logo-transparent.png" alt="El Mehdi Tabi logo" />
                 </div>
 
                 <ul className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
@@ -56,6 +57,17 @@ function Navbar({ activeSection }) {
                         </li>
                     ))}
                 </ul>
+
+                <button
+                    className="theme-toggle"
+                    type="button"
+                    onClick={onThemeToggle}
+                    aria-pressed={theme === 'dark'}
+                    aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+                    title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                >
+                    <FontAwesomeIcon icon={theme === 'dark' ? faSun : faMoon} aria-hidden="true" />
+                </button>
 
                 <button
                     className={`navbar-toggle ${isMobileMenuOpen ? 'active' : ''}`}

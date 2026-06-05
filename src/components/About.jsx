@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import './About.css'
 
+const highlights = [
+    { value: '01', label: 'Full stack mindset', detail: 'Frontend, backend, database, and delivery.' },
+    { value: '02', label: 'Product focus', detail: 'Clean interfaces built around real user flows.' },
+    { value: '03', label: 'Growth driven', detail: 'Actively building projects and seeking internship opportunities.' },
+]
+
 function About() {
     const [isVisible, setIsVisible] = useState(false)
     const sectionRef = useRef(null)
@@ -12,16 +18,17 @@ function About() {
                     setIsVisible(true)
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.18 }
         )
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current)
+        const node = sectionRef.current
+        if (node) {
+            observer.observe(node)
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current)
+            if (node) {
+                observer.unobserve(node)
             }
         }
     }, [])
@@ -29,62 +36,38 @@ function About() {
     return (
         <section id="about" className="section about" ref={sectionRef}>
             <div className="container">
-                <h2 className="section-title">About Me</h2>
-
-                <div className={`about-content ${isVisible ? 'visible' : ''}`}>
-                    <div className="about-text">
-                        <p className="about-intro">
-                            Hello! I'm <span className="text-gradient">El Mehdi Tabi</span>, a passionate{' '}
-                            <strong>Full Stack Developer</strong> dedicated to creating modern, efficient,
-                            and scalable web applications.
-                        </p>
-
-                        <p>
-                            {/* TODO: Customize this section with your personal story */}
-                            I'm currently pursuing my studies in web development, where I've developed
-                            a strong foundation in both frontend and backend technologies. My journey
-                            in programming started with a curiosity about how websites work, and it
-                            quickly evolved into a passion for building complete web solutions.
-                        </p>
-
-                        <p>
-                            I specialize in creating responsive, user-friendly interfaces with{' '}
-                            <span className="highlight">React</span> and building robust backend systems
-                            with <span className="highlight">Laravel</span> and{' '}
-                            <span className="highlight">PHP</span>. I'm constantly learning and staying
-                            up-to-date with the latest web technologies and best practices.
-                        </p>
-
-                        <div className="about-highlights">
-                            <div className="highlight-item">
-                                <div className="highlight-icon">🎓</div>
-                                <div className="highlight-content">
-                                    <h4>Education</h4>
-                                    <p>Computer Science Student</p>
-                                    {/* TODO: Add your university/school name */}
-                                    <p className="highlight-detail">Focused on Web Development</p>
-                                </div>
-                            </div>
-
-                            <div className="highlight-item">
-                                <div className="highlight-icon">💡</div>
-                                <div className="highlight-content">
-                                    <h4>Passion</h4>
-                                    <p>Building Modern Web Apps</p>
-                                    <p className="highlight-detail">Clean code & user experience</p>
-                                </div>
-                            </div>
-
-                            <div className="highlight-item">
-                                <div className="highlight-icon">🎯</div>
-                                <div className="highlight-content">
-                                    <h4>Career Goal</h4>
-                                    <p>Full Stack Developer Role</p>
-                                    <p className="highlight-detail">Seeking internship opportunities</p>
-                                </div>
-                            </div>
-                        </div>
+                <div className={`about-layout ${isVisible ? 'visible' : ''}`}>
+                    <div className="about-heading">
+                        <p className="about-kicker">About Me</p>
+                        <h2>Developer with a product eye</h2>
                     </div>
+
+                    <div className="about-copy">
+                        <p className="about-intro">
+                            I am <strong>El Mehdi Tabi</strong>, a Full Stack Developer focused on
+                            building modern web applications with React, Laravel, PHP, MySQL, and
+                            practical UI motion.
+                        </p>
+                        <p>
+                            My work connects clean visual interfaces with reliable backend logic. I
+                            enjoy turning an idea into a usable product: clear pages, structured data,
+                            secure flows, and responsive experiences that feel polished on every screen.
+                        </p>
+                        <p>
+                            I am currently studying IT development at CMC CASA-SETTAT and looking for
+                            opportunities where I can contribute, learn fast, and ship real projects.
+                        </p>
+                    </div>
+                </div>
+
+                <div className={`about-highlights ${isVisible ? 'visible' : ''}`}>
+                    {highlights.map((item, index) => (
+                        <article className="highlight-item" key={item.label} style={{ '--delay': `${index * 120}ms` }}>
+                            <span>{item.value}</span>
+                            <h3>{item.label}</h3>
+                            <p>{item.detail}</p>
+                        </article>
+                    ))}
                 </div>
             </div>
         </section>

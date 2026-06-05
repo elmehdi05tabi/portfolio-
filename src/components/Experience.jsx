@@ -26,18 +26,17 @@ function Experience() {
         }
     }, [])
 
-    // TODO: Replace with your actual experience
     const experiences = [
         {
             type: 'Internship',
             title: 'Full Stack Developer & Teams Lead',
-            organization: 'CEFP ',
+            organization: 'Magna Teck',
             period: '3 Months',
             description:
                 'Responsible for a development team creating an ERP system for the multi-site management of a vocational training center. Full-stack development in PHP and design of a scalable database including registration management, course scheduling, and financial tracking.',
             technologies: ['PHP', 'Tailwind CSS', 'MySQL', 'Git', 'GitHub'],
             achievements: [
-                'Implemented user authentication and authorizationLed a development team to design and implement a centralized ERP system for the CEFP vocational training center.',
+                'Implemented user authentication and authorization, then led the team delivering a centralized ERP system.',
                 'Architected a scalable relational database supporting multi-center management and high data integrity.',
                 'Coordinated project tasks using Agile/Scrum practices and Jira, ensuring timely delivery of project milestones.',
                 'Built real-time financial analytics dashboards to monitor budgets, expenses, and operational performance.',

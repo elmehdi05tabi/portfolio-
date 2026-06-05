@@ -15,7 +15,9 @@ function Footer() {
             <div className="container">
                 <div className="footer-content">
                     <div className="footer-section">
-                        <h3 className="footer-logo">El Mehdi</h3>
+                        <div className="footer-brand">
+                            <img src="/logo-transparent.png" alt="El Mehdi Tabi logo" />
+                        </div>
                         <p className="footer-tagline">Full Stack Developer</p>
                         <p className="footer-description">
                             Building modern and scalable web applications with passion and precision.
@@ -31,18 +33,33 @@ function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
-                                    About
-                                </a>
-                            </li>
-                            <li>
                                 <a href="#projects" onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}>
                                     Projects
                                 </a>
                             </li>
                             <li>
-                                <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }}>
-                                    Contact
+                                <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>
+                                    Skills
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#experience" onClick={(e) => { e.preventDefault(); scrollToSection('experience'); }}>
+                                    Experience
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#education" onClick={(e) => { e.preventDefault(); scrollToSection('education'); }}>
+                                    Education
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#certificates" onClick={(e) => { e.preventDefault(); scrollToSection('certificates'); }}>
+                                    Certificates
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}>
+                                    About
                                 </a>
                             </li>
                         </ul>
@@ -51,7 +68,6 @@ function Footer() {
                     <div className="footer-section">
                         <h4>Connect</h4>
                         <div className="footer-social">
-                            {/* TODO: Replace with your actual social links */}
                             <a
                                 href="https://github.com/elmehdi05tabi"
                                 target="_blank"

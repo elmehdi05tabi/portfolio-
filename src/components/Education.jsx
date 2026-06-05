@@ -26,10 +26,9 @@ function Education() {
         }
     }, [])
 
-    // TODO: Replace with your actual education details
     const education = [
         {
-            degree: 'IT Development Technician',
+            degree: 'Specialized Technician in Software Development',
             school: 'CMC CASA-SETTAT',
             period: '2024 - 2026',
             description: 'Specialized in Web Development and Software Engineering',

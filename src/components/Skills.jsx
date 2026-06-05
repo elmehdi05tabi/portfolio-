@@ -1,5 +1,100 @@
 import { useEffect, useRef, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+    faBootstrap,
+    faCss3Alt,
+    faDocker,
+    faGitAlt,
+    faGithub,
+    faGitlab,
+    faHtml5,
+    faJira,
+    faJs,
+    faLaravel,
+    faNodeJs,
+    faPhp,
+    faPython,
+    faReact,
+    faSass,
+} from '@fortawesome/free-brands-svg-icons'
+import {
+    faCode,
+    faDatabase,
+    faDiagramProject,
+    faLaptopCode,
+    faLayerGroup,
+    faLeaf,
+    faNetworkWired,
+    faServer,
+    faTerminal,
+} from '@fortawesome/free-solid-svg-icons'
 import './Skills.css'
+
+const skillCategories = [
+    {
+        title: 'Frontend',
+        description: 'Interfaces responsive, clean UI, component-driven development.',
+        accent: 'cyan',
+        icon: faLaptopCode,
+        skills: [
+            { name: 'HTML5', icon: faHtml5 },
+            { name: 'CSS3', icon: faCss3Alt },
+            { name: 'JavaScript', icon: faJs },
+            { name: 'React', icon: faReact },
+            { name: 'Bootstrap', icon: faBootstrap },
+            { name: 'SCSS', icon: faSass },
+        ],
+    },
+    {
+        title: 'Backend',
+        description: 'APIs, server logic, authentication, architecture, and scalable services.',
+        accent: 'gold',
+        icon: faServer,
+        skills: [
+            { name: 'C', icon: faCode },
+            { name: 'Python', icon: faPython },
+            { name: 'PHP', icon: faPhp },
+            { name: 'Laravel', icon: faLaravel },
+            { name: 'Node.js', icon: faNodeJs },
+            { name: 'Express.js', icon: faServer },
+            { name: 'REST API', icon: faNetworkWired },
+            { name: 'Microservices', icon: faDiagramProject },
+            { name: 'RabbitMQ', icon: faLayerGroup },
+        ],
+    },
+    {
+        title: 'Database',
+        description: 'Data modeling, relational schemas, queries, and document databases.',
+        accent: 'green',
+        icon: faDatabase,
+        skills: [
+            { name: 'MySQL', icon: faDatabase },
+            { name: 'MongoDB', icon: faLeaf },
+        ],
+    },
+    {
+        title: 'DevOps & Tools',
+        description: 'Version control, containers, collaboration, and delivery workflow.',
+        accent: 'rose',
+        icon: faTerminal,
+        skills: [
+            { name: 'Git', icon: faGitAlt },
+            { name: 'GitHub', icon: faGithub },
+            { name: 'GitLab', icon: faGitlab },
+            { name: 'Docker', icon: faDocker },
+            { name: 'Jira', icon: faJira },
+        ],
+    },
+]
+
+const competencies = [
+    'Responsive Web Design',
+    'RESTful API Development',
+    'Version Control',
+    'Database Design',
+    'Debugging',
+    'Agile Workflow',
+]
 
 function Skills() {
     const [isVisible, setIsVisible] = useState(false)
@@ -12,164 +107,66 @@ function Skills() {
                     setIsVisible(true)
                 }
             },
-            { threshold: 0.2 }
+            { threshold: 0.16 }
         )
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current)
+        const node = sectionRef.current
+        if (node) {
+            observer.observe(node)
         }
 
         return () => {
-            if (sectionRef.current) {
-                observer.unobserve(sectionRef.current)
+            if (node) {
+                observer.unobserve(node)
             }
         }
     }, [])
 
-    const skillCategories = [
-        {
-            title: 'Frontend',
-            icon: '🎨',
-            skills: ['HTML', 'CSS', 'JavaScript', 'React','Bootstrap','Scss'],
-        },
-        {
-            title: 'Backend',
-            icon: '⚙️',
-            skills: ['C', 'Python', 'PHP', 'Laravel', 'Node.js', 'Express.js'],
-        },
-        {
-            title: 'Database',
-            icon: '🗄️',
-            skills: ['MySQL','MongoDB'],
-        },
-        {
-            title: 'DevOps & Tools',
-            icon: '🛠️',
-            skills: ['Git', 'GitHub', 'GitLab','Docker', 'Jira'],
-        },
-    ]
-
     return (
         <section id="skills" className="section skills" ref={sectionRef}>
             <div className="container">
-                <h2 className="section-title">Technical Skills</h2>
+                <div className="skills-heading">
+                    <p className="skills-kicker">Technical Stack</p>
+                    <h2>Skills built for real products</h2>
+                    <p>
+                        A focused toolkit for building clean interfaces, reliable backends,
+                        structured databases, and modern delivery workflows.
+                    </p>
+                </div>
 
                 <div className={`skills-grid ${isVisible ? 'visible' : ''}`}>
                     {skillCategories.map((category, index) => (
-                        <div
+                        <article
                             key={category.title}
-                            className="skill-category"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            className={`skill-panel ${category.accent}`}
+                            style={{ '--delay': `${index * 110}ms` }}
                         >
-                            <div className="category-header">
-                                <span className="category-icon">{category.icon}</span>
-                                <h3 className="category-title">{category.title}</h3>
+                            <div className="skill-panel-head">
+                                <span className="skill-panel-icon" aria-hidden="true">
+                                    <FontAwesomeIcon icon={category.icon} />
+                                </span>
+                                <div>
+                                    <h3>{category.title}</h3>
+                                    <p>{category.description}</p>
+                                </div>
                             </div>
-                            <div className="category-skills">
+
+                            <div className="tech-grid" aria-label={`${category.title} technologies`}>
                                 {category.skills.map((skill) => (
-                                    <span key={skill} className="skill-badge">
-                                        {skill}
-                                    </span>
+                                    <div className="tech-card" key={skill.name} title={skill.name}>
+                                        <FontAwesomeIcon icon={skill.icon} aria-hidden="true" />
+                                        <span>{skill.name}</span>
+                                    </div>
                                 ))}
                             </div>
-                        </div>
+                        </article>
                     ))}
                 </div>
 
-                <div className={`skills-additional ${isVisible ? 'visible' : ''}`}>
-                    <h3>Additional Competencies</h3>
-                    <div className="competencies-list">
-                        <div className="competency-item">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Responsive Web Design</span>
-                        </div>
-                        <div className="competency-item">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>RESTful API Development</span>
-                        </div>
-                        <div className="competency-item">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Version Control (Git)</span>
-                        </div>
-                        <div className="competency-item">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Database Design & Management</span>
-                        </div>
-                        <div className="competency-item">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Problem Solving & Debugging</span>
-                        </div>
-                        <div className="competency-item">
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <polyline points="20 6 9 17 4 12"></polyline>
-                            </svg>
-                            <span>Agile Development Practices</span>
-                        </div>
-                    </div>
+                <div className={`skills-strip ${isVisible ? 'visible' : ''}`}>
+                    {competencies.map((competency) => (
+                        <span key={competency}>{competency}</span>
+                    ))}
                 </div>
             </div>
         </section>

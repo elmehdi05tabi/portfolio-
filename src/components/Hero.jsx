@@ -1,6 +1,50 @@
 import { useEffect, useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub, faLinkedinIn, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faDownload, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import './Hero.css'
 import img from './me.png'
+
+const socialLinks = [
+    {
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/el-mehdi-tabi-03b80428a/',
+        icon: faLinkedinIn,
+        variant: 'linkedin',
+    },
+    {
+        label: 'GitHub',
+        href: 'https://github.com/elmehdi05tabi',
+        icon: faGithub,
+        variant: 'github',
+    },
+    {
+        label: 'WhatsApp',
+        href: 'https://wa.me/212610962163',
+        icon: faWhatsapp,
+        variant: 'whatsapp',
+    },
+    {
+        label: 'Email',
+        href: 'mailto:elmehditabi0@gmail.com',
+        icon: faEnvelope,
+        variant: 'email',
+    },
+]
+
+const cvLinks = [
+    {
+        label: 'CV FR',
+        href: '/El_Mehdi_Tabi_CV_FR.pdf',
+        downloadName: 'El_Mehdi_Tabi_CV_FR.pdf',
+    },
+    {
+        label: 'CV EN',
+        href: '/CV_El_MehdiTabi_EN.docx.pdf',
+        downloadName: 'El_Mehdi_Tabi_CV_EN.pdf',
+    },
+]
+
 function Hero() {
     const [isVisible, setIsVisible] = useState(false)
 
@@ -16,95 +60,75 @@ function Hero() {
     }
 
     return (
-        <section id="home" className="hero">
-            <div className="hero-background">
-                <div className="hero-gradient"></div>
-                <div className="hero-particles">
-                    {[...Array(50)].map((_, i) => (
-                        <div
-                            key={i}
-                            className="particle"
-                            style={{
-                                left: `${Math.random() * 100}%`,
-                                top: `${Math.random() * 100}%`,
-                                animationDelay: `${Math.random() * 3}s`,
-                                animationDuration: `${3 + Math.random() * 4}s`,
-                            }}
-                        ></div>
-                    ))}
-                </div>
+        <section id="home" className={`hero ${isVisible ? 'visible' : ''}`}>
+            <div className="hero-stage" aria-hidden="true">
+                <span className="hero-line hero-line-one"></span>
+                <span className="hero-line hero-line-two"></span>
+                <span className="hero-noise"></span>
             </div>
 
             <div className="container hero-container">
-                <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
-                    <div className="hero-image-wrapper">
-                        {/* TODO: Replace with your professional photo */}
-                        {/* Place your photo in /public/profile.jpg */}
-                        <div className="hero-image">
-                            <div className="image-placeholder">
-                                <img src={img} alt="My Photo" />
-                            </div>
-                            <div className="image-glow"></div>
+                <div className="hero-copy">
+                    <p className="hero-kicker">Portfolio / Full Stack Developer</p>
+                    <h1 className="hero-title">
+                        <span>El Mehdi</span>
+                        <span>Tabi</span>
+                    </h1>
+                    <p className="hero-description">
+                        I develop reliable full-stack web applications with modern interfaces,
+                        secure back-end logic, and clean code.
+                    </p>
+
+                    <div className="hero-actions">
+                        <button className="hero-button primary" onClick={() => scrollToSection('projects')}>
+                            Voir mes projets
+                        </button>
+                        <div className="hero-cv-options" aria-label="Download CV">
+                            {cvLinks.map((cv) => (
+                                <a
+                                    key={cv.label}
+                                    className="hero-button ghost cv-option"
+                                    href={cv.href}
+                                    download={cv.downloadName}
+                                >
+                                    <FontAwesomeIcon icon={faDownload} aria-hidden="true" />
+                                    {cv.label}
+                                </a>
+                            ))}
                         </div>
                     </div>
 
-                    <h1 className="hero-title">
-                        Hi, I'm <span className="text-gradient">El Mehdi Tabi</span>
-                    </h1>
-
-                    <h2 className="hero-subtitle">
-                        Full Stack Developer
-                    </h2>
-
-                    <p className="hero-description">
-                        Passionate about building <span className="highlight">modern</span> and{' '}
-                        <span className="highlight">scalable</span> web applications
-                    </p>
-
-                    <div className="hero-cta">
-                        <button
-                            className="btn btn-primary"
-                            onClick={() => scrollToSection('projects')}
-                        >
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
+                    <div className="hero-socials" aria-label="Social links">
+                        {socialLinks.map((link) => (
+                            <a
+                                key={link.label}
+                                className={`hero-social-link ${link.variant}`}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={link.label}
+                                title={link.label}
                             >
-                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-                            </svg>
-                            View Projects
-                        </button>
-                        <button
-                            className="btn btn-secondary"
-                            onClick={() => scrollToSection('contact')}
-                        >
-                            <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            >
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            Contact Me
-                        </button>
+                                <FontAwesomeIcon icon={link.icon} aria-hidden="true" />
+                            </a>
+                        ))}
                     </div>
+                </div>
 
-
+                <div className="hero-portrait-wrap">
+                    <div className="hero-portrait">
+                        <img src={img} alt="El Mehdi Tabi" />
+                    </div>
+                    <div className="hero-signature">
+                        <span>Based in Morocco</span>
+                        <strong>Available for web projects</strong>
+                    </div>
                 </div>
             </div>
+
+            <button className="hero-scroll" onClick={() => scrollToSection('projects')} aria-label="Scroll to projects">
+                <span></span>
+            </button>
         </section>
     )
 }

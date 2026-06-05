@@ -19,7 +19,6 @@ function Contact() {
             ...prev,
             [name]: value,
         }))
-        // Clear error when user starts typing
         if (errors[name]) {
             setErrors((prev) => ({
                 ...prev,
@@ -66,10 +65,7 @@ function Contact() {
         setIsSubmitting(true)
         setSubmitStatus(null)
 
-        // TODO: Replace with your actual form submission logic
-        // This could be an API call to your backend or a service like EmailJS
         try {
-            // Simulate API call
             await new Promise((resolve) => setTimeout(resolve, 1500))
 
             console.log('Form submitted:', formData)
@@ -110,7 +106,6 @@ function Contact() {
                                 </svg>
                                 <div>
                                     <h4>Email</h4>
-                                    {/* TODO: Replace with your email */}
                                     <a href="mailto:elmehditabi0@gmail.com">elmehditabi0@gmail.com</a>
                                 </div>
                             </div>
@@ -126,7 +121,6 @@ function Contact() {
                                 </svg>
                                 <div>
                                     <h4>LinkedIn</h4>
-                                    {/* TODO: Replace with your LinkedIn */}
                                     <a
                                         href="https://www.linkedin.com/in/el-mehdi-tabi-03b80428a/"
                                         target="_blank"
@@ -148,7 +142,6 @@ function Contact() {
                                 </svg>
                                 <div>
                                     <h4>GitHub</h4>
-                                    {/* TODO: Replace with your GitHub */}
                                     <a
                                         href="https://github.com/elmehdi05tabi"
                                         target="_blank"
