@@ -2,6 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import './Projects.css'
 
 const projects = [
+      {
+    title: 'Azlag Shop',
+    eyebrow: 'Full-Stack E-Commerce Platform',
+    description:
+        'Modern e-commerce platform built for Moroccan businesses, featuring product management, secure image uploads, multilingual support, shopping cart functionality, order management, responsive design, and an optimized customer experience.',
+    technologies: [
+        'Laravel',
+        'MySQL',
+        'JavaScript',
+        'Responsive UI'
+    ],
+    image: '/project-covers/azlagshop.png',
+    github: '#',
+    demo: 'https://azlagshop.com',
+},
     {
         title: 'Ana Watches',
         eyebrow: 'E-commerce / Watch Brand',
